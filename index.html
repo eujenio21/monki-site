@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MONKI | Seu degen favorito nas memecoins</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Neue', cursive, sans-serif;
+    background: linear-gradient(135deg, #2b5d34, #1c3a20);
+    color: #fff;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Falling banana animation */
+  .falling {
+    position: absolute;
+    background: url('https://i.postimg.cc/LYGL2Qhb/istockphoto.png') no-repeat center/contain;
+    opacity: 0.2;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 0.3;
+    }
+    100% {
+      transform: translateY(calc(100vh + 200px)) rotate(360deg);
+      opacity: 0.2;
+    }
+  }
+
+  /* Bananas caindo em posições diferentes */
+  .falling:nth-child(1) { left: 5%; width: 50px; height: 50px; animation-duration: 14s; animation-delay: 0s;}
+  .falling:nth-child(2) { left: 15%; width: 70px; height: 70px; animation-duration: 16s; animation-delay: 2s;}
+  .falling:nth-child(3) { left: 25%; width: 60px; height: 60px; animation-duration: 13s; animation-delay: 4s;}
+  .falling:nth-child(4) { left: 35%; width: 55px; height: 55px; animation-duration: 15s; animation-delay: 6s;}
+  .falling:nth-child(5) { left: 45%; width: 65px; height: 65px; animation-duration: 12s; animation-delay: 1s;}
+  .falling:nth-child(6) { left: 55%; width: 50px; height: 50px; animation-duration: 17s; animation-delay: 3s;}
+  .falling:nth-child(7) { left: 65%; width: 75px; height: 75px; animation-duration: 14s; animation-delay: 5s;}
+  .falling:nth-child(8) { left: 75%; width: 60px; height: 60px; animation-duration: 16s; animation-delay: 7s;}
+  .falling:nth-child(9) { left: 85%; width: 55px; height: 55px; animation-duration: 13s; animation-delay: 2.5s;}
+  .falling:nth-child(10){ left: 95%; width: 65px; height: 65px; animation-duration: 18s; animation-delay: 4.5s;}
+
+  /* Top navigation */
+  .top-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    z-index: 1000;
+  }
+
+  .top-nav a.btn {
+    background: #57f287;
+    color: #0a250a;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 9999px;
+    box-shadow: 0 0 10px #57f287;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  .top-nav a.btn:hover {
+    background: #0a250a;
+    color: #57f287;
+    box-shadow: 0 0 15px #a0e39c;
+  }
+
+  /* Container */
+  .container {
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 3rem 2.5rem 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #57f287;
+    margin-top: 70px;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 0 8px #57f287;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 1.8rem;
+    color: #a0e39c;
+    font-style: italic;
+  }
+
+  p.description {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+
+  /* Mascote */
+  .monkey {
+    margin: 1.5rem auto 2rem;
+    width: 180px;
+    height: 180px;
+    background: url('https://i.postimg.cc/Y997FsJw/3837dba4-07df-4680-91.png') no-repeat center/contain;
+  }
+
+  /* Meme Section */
+  .meme {
+    margin-top: 1.5rem;
+  }
+
+  .meme img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #57f287;
+  }
+
+  .meme p {
+    margin-top: 0.8rem;
+    font-size: 1rem;
+    color: #a0e39c;
+    font-style: italic;
+  }
+
+  /* Roadmap */
+  .roadmap {
+    margin-top: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #57f287;
+  }
+
+  .roadmap h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #57f287;
+    text-shadow: 0 0 8px #57f287;
+  }
+
+  .roadmap p {
+    font-size: 1.1rem;
+    margin: 0.4rem 0;
+    color: #a0e39c;
+  }
+
+  /* Tokenomics Section */
+  .tokenomics {
+    margin-top: 2rem;
+    background: rgba(0,0,0,0.5);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #57f287;
+    color: #a0e39c;
+  }
+
+  .tokenomics h3 {
+    font-size: 1.5rem;
+    color: #57f287;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 8px #57f287;
+  }
+
+  .tokenomics p {
+    font-size: 1.1rem;
+    margin: 0.3rem 0;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 2rem;
+    padding: 1rem 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    color: #57f287;
+    font-size: 0.9rem;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.7);
+    position: relative;
+    z-index: 500;
+  }
+
+  /* Responsive */
+  @media (max-width: 520px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+    .container {
+      padding: 2.5rem 1.8rem 1.8rem;
+      margin-top: 80px;
+    }
+    .top-nav a.btn {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Falling bananas -->
+  <div class="falling"></div>
+  <div class="falling"></div>
+  <div class="falling"></div>
+  <div class="falling"></div>
+  <div class="falling"></div>
+  <div class="falling"></div>
+  <div class="falling"></div>
+  <div class="falling"></div>
+  <div class="falling"></div>
+  <div class="falling"></div>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <a class="btn" href="https://t.me/MONKICOINN" target="_blank" rel="noopener noreferrer">Telegram</a>
+    <a class="btn" href="https://x.com/leseMonkey" target="_blank" rel="noopener noreferrer">Twitter</a>
+    <a class="btn" href="https://pump.fun/coin/4J8VE3jYcLkUSHBKmrDvZvCRurvUUPApYYrUsi8Ypump" target="_blank" rel="noopener noreferrer">Comprar $MONKI</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <h1>MONKI</h1>
+    <h2>Seu degen favorito, sempre all-in nas memecoins!</h2>
+
+    <div class="monkey" aria-label="Mascote macaco"></div>
+
+    <p class="description">
+      Esquece análise, esquece fundamento. MONKI só quer saber de apertar o botão de comprar. O macaco mais degen da Solana tá solto, pulando de shitcoin em shitcoin, sem medo, sem freio e SEM VOLTA. Se você respira meme, vive no all-in e acha que risco é só uma palavra bonita... então você já é MONKI. Segura firme, compra, segura... e reza.
+    </p>
+
+    <div class="meme">
+      <img src="https://i.postimg.cc/VNGY6wd8/Imagem-do-Wh.jpg" alt="Meme do Monki" />
+      <p>“Segura essa merda que hoje tem pump! MONKI nunca abandona a selva.” 🍌💎</p>
+    </div>
+
+    <div class="roadmap">
+      <h3>📜 Roteiro</h3>
+      <p>Fase 1 — Fazer meme ✅</p>
+      <p>Fase 2 — Crescer a comunidade 🍌</p>
+      <p>Fase 3 — Ir pra LUA 🚀🌕</p>
+    </div>
+
+    <div class="meme" style="margin-top: 2rem;">
+      <img src="https://i.postimg.cc/br5rvF9m/Imagem-do-Whats-App.jpg" alt="Segundo meme do Monki" />
+      <p>"Quando o pump demora, mas o MONKI não larga a bananinha 🍌💎 — paciência de macaco é tudo nessa selva!"</p>
+    </div>
+
+    <section class="tokenomics">
+      <h3>💰 Tokenomics</h3>
+      <p>Token Total: 1.000.000.000</p>
+      <p>97.77% Liquidez</p>
+      <p>2.22% Dev</p>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 por monki. Todos os direitos reservados!
+  </footer>
+
+</body>
+</html>
