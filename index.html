@@ -1,231 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MONKI | Your favorite degen on memecoins</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.7, minimum-scale=0.7, maximum-scale=2, user-scalable=yes">
+  <title>lisemonkkey | Your favorite degen on memecoins</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
 
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Comic Neue', cursive, sans-serif;
-    background: linear-gradient(135deg, #2b5d34, #1c3a20);
-    color: #fff;
-    overflow-x: hidden;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-  }
+    body {
+      margin: 0;
+      padding:13;
+      font-family: 'Comic Neue', cursive, sans-serif;
+      background: linear-gradient(135deg, #2b5d34, #1c3a20);
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
 
-  .falling {
-    position: absolute;
-    background: url('https://i.postimg.cc/LYGL2Qhb/istockphoto.png') no-repeat center/contain;
-    opacity: 0.2;
-    animation: fall linear infinite;
-  }
-
-  @keyframes fall {
-    0% {
-      transform: translateY(0) rotate(0deg);
+    .falling {
+      position: absolute;
+      background: url('https://i.postimg.cc/LYGL2Qhb/istockphoto.png') no-repeat center/contain;
       opacity: 0.2;
+      animation: fall linear infinite;
     }
-    50% {
-      opacity: 0.3;
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
+      50% { opacity: 0.3; }
+      100% { transform: translateY(120vh) rotate(360deg); opacity: 0.2; }
     }
-    100% {
-      transform: translateY(calc(100vh + 200px)) rotate(360deg);
-      opacity: 0.2;
+
+    .falling:nth-child(n) {
+      width: 60px;
+      height: 60px;
+      animation-duration: 10s;
     }
-  }
 
-  .falling:nth-child(1) { left: 5%; width: 50px; height: 50px; animation-duration: 14s; animation-delay: 0s;}
-  .falling:nth-child(2) { left: 15%; width: 70px; height: 70px; animation-duration: 16s; animation-delay: 2s;}
-  .falling:nth-child(3) { left: 25%; width: 60px; height: 60px; animation-duration: 13s; animation-delay: 4s;}
-  .falling:nth-child(4) { left: 35%; width: 55px; height: 55px; animation-duration: 15s; animation-delay: 6s;}
-  .falling:nth-child(5) { left: 45%; width: 65px; height: 65px; animation-duration: 12s; animation-delay: 1s;}
-  .falling:nth-child(6) { left: 55%; width: 50px; height: 50px; animation-duration: 17s; animation-delay: 3s;}
-  .falling:nth-child(7) { left: 65%; width: 75px; height: 75px; animation-duration: 14s; animation-delay: 5s;}
-  .falling:nth-child(8) { left: 75%; width: 60px; height: 60px; animation-duration: 16s; animation-delay: 7s;}
-  .falling:nth-child(9) { left: 85%; width: 55px; height: 55px; animation-duration: 13s; animation-delay: 2.5s;}
-  .falling:nth-child(10){ left: 95%; width: 65px; height: 65px; animation-duration: 18s; animation-delay: 4.5s;}
+    .falling:nth-child(1) { left: 5%; animation-delay: 0s; }
+    .falling:nth-child(2) { left: 15%; animation-delay: 2s; }
+    .falling:nth-child(3) { left: 25%; animation-delay: 4s; }
+    .falling:nth-child(4) { left: 35%; animation-delay: 1s; }
+    .falling:nth-child(5) { left: 45%; animation-delay: 3s; }
+    .falling:nth-child(6) { left: 55%; animation-delay: 5s; }
+    .falling:nth-child(7) { left: 65%; animation-delay: 2s; }
+    .falling:nth-child(8) { left: 75%; animation-delay: 4s; }
+    .falling:nth-child(9) { left: 85%; animation-delay: 1.5s; }
+    .falling:nth-child(10){ left: 95%; animation-delay: 3.5s; }
 
-  .top-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 0.8rem 1.5rem;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.7);
-    z-index: 1000;
-  }
+    .btn {
+      background: #57f287;
+      color: #0a250a;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 9999px;
+      box-shadow: 0 0 10px #57f287;
+      transition: 0.3s ease;
+      font-size: 1rem;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+    }
 
-  .top-nav a.btn {
-    background: #57f287;
-    color: #0a250a;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 0.5rem 1.2rem;
-    border-radius: 9999px;
-    box-shadow: 0 0 10px #57f287;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 1rem;
-    white-space: nowrap;
-  }
+    .btn img {
+      height: 20px;
+      margin-right: 6px;
+    }
 
-  .top-nav a.btn:hover {
-    background: #0a250a;
-    color: #57f287;
-    box-shadow: 0 0 15px #a0e39c;
-  }
+    .btn:hover {
+      background: #0a250a;
+      color: #57f287;
+      box-shadow: 0 0 15px #a0e39c;
+    }
 
-  .container {
-    max-width: 500px;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 3rem 2.5rem 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 0 20px #57f287;
-    margin-top: 70px;
-  }
+    .top-nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+      z-index: 1000;
+    }
 
-  h1 {
-    font-size: 2.8rem;
-    margin-bottom: 0.3rem;
-    text-shadow: 0 0 8px #57f287;
-  }
+    .container {
+      max-width: 500px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 3rem 2.5rem 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #57f287;
+      margin-top: 100px;
+      width: 90%;
+    }
 
-  h2 {
-    font-size: 1.2rem;
-    font-weight: 400;
-    margin-bottom: 1.8rem;
-    color: #a0e39c;
-    font-style: italic;
-  }
+    .social-buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
 
-  p.description {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    margin-bottom: 2rem;
-  }
+    .monkey {
+      margin: 1.5rem auto 2rem;
+      width: 180px;
+      height: 180px;
+      background: url('https://i.postimg.cc/Y997FsJw/3837dba4-07df-4680-91.png') no-repeat center/contain;
+    }
 
-  .monkey {
-    margin: 1.5rem auto 2rem;
-    width: 180px;
-    height: 180px;
-    background: url('https://i.postimg.cc/Y997FsJw/3837dba4-07df-4680-91.png') no-repeat center/contain;
-  }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 0 8px #57f287;
+    }
 
-  .meme {
-    margin-top: 1.5rem;
-  }
+    h2 {
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 1.8rem;
+      color: #a0e39c;
+      font-style: italic;
+    }
 
-  .meme img {
-    max-width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 0 15px #57f287;
-  }
+    p.description {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
 
-  .meme p {
-    margin-top: 0.8rem;
-    font-size: 1rem;
-    color: #a0e39c;
-    font-style: italic;
-  }
+    .meme img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #57f287;
+    }
 
-  .roadmap {
-    margin-top: 2rem;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 0 10px #57f287;
-  }
+    .meme p {
+      margin-top: 0.8rem;
+      font-size: 1rem;
+      color: #a0e39c;
+      font-style: italic;
+    }
 
-  .roadmap h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #57f287;
-    text-shadow: 0 0 8px #57f287;
-  }
+    .roadmap, .tokenomics {
+      margin-top: 2rem;
+      background: rgba(0,0,0,0.5);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #57f287;
+      color: #a0e39c;
+    }
 
-  .roadmap p {
-    font-size: 1.1rem;
-    margin: 0.4rem 0;
-    color: #a0e39c;
-  }
+    .roadmap h3, .tokenomics h3 {
+      font-size: 1.5rem;
+      color: #57f287;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 8px #57f287;
+    }
 
-  .tokenomics {
-    margin-top: 2rem;
-    background: rgba(0,0,0,0.5);
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 0 10px #57f287;
-    color: #a0e39c;
-  }
+    footer {
+      margin-top: 2rem;
+      padding: 1rem 0;
+      width: 100%;
+      background: rgba(0,0,0,0.6);
+      color: #57f287;
+      font-size: 0.9rem;
+      text-align: center;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.7);
+    }
 
-  .tokenomics h3 {
-    font-size: 1.5rem;
-    color: #57f287;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 8px #57f287;
-  }
-
-  .tokenomics p {
-    font-size: 1.1rem;
-    margin: 0.3rem 0;
-  }
-
-  footer {
-    margin-top: 2rem;
-    padding: 1rem 0;
-    width: 100%;
-    background: rgba(0,0,0,0.6);
-    color: #57f287;
-    font-size: 0.9rem;
-    text-align: center;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.7);
-    position: relative;
-    z-index: 500;
-  }
-</style>
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 0.9rem; }
+      .btn { font-size: 0.85rem; padding: 0.4rem 1rem; }
+    }
+  </style>
 </head>
 <body>
+  <!-- Bananas -->
+  <div class="falling"></div><div class="falling"></div><div class="falling"></div><div class="falling"></div><div class="falling"></div>
+  <div class="falling"></div><div class="falling"></div><div class="falling"></div><div class="falling"></div><div class="falling"></div>
 
-  <!-- Falling bananas -->
-  <div class="falling"></div>
-  <div class="falling"></div>
-  <div class="falling"></div>
-  <div class="falling"></div>
-  <div class="falling"></div>
-  <div class="falling"></div>
-  <div class="falling"></div>
-  <div class="falling"></div>
-  <div class="falling"></div>
-  <div class="falling"></div>
-
-  <!-- Top Navigation -->
+  <!-- Navegação -->
   <nav class="top-nav">
-    <a class="btn" href="https://t.me/MONKICOINN" target="_blank" rel="noopener noreferrer">Telegram</a>
-    <a class="btn" href="https://x.com/leseMonkey" target="_blank" rel="noopener noreferrer">Twitter</a>
-    <a class="btn" href="https://pump.fun/coin/4J8VE3jYcLkUSHBKmrDvZvCRurvUUPApYYrUsi8Ypump" target="_blank" rel="noopener noreferrer">Buy $MONKI</a>
+    <a class="btn" href="https://t.me/MONKICOINN" target="_blank">
+      <img src="https://i.postimg.cc/9MFHFcJD/telegram.png" alt="Telegram">Telegram
+    </a>
+    <a class="btn" href="https://discord.gg/D4WTd747" target="_blank">
+      <img src="https://i.postimg.cc/SRJX971p/discordia.png" alt="Discord">Discord
+    </a>
+    <a class="btn" href="https://x.com/liseMonkkey" target="_blank">
+      <img src="https://i.postimg.cc/jdrBNwmG/x.png" alt="X">
+    </a>
+    <a class="btn" href="https://pump.fun/coin/4J8VE3jYcLkUSHBKmrDvZvCRurvUUPApYYrUsi8Ypump" target="_blank">Buy $MONKI</a>
   </nav>
 
-  <!-- Main Content -->
+  <!-- Conteúdo principal -->
   <main class="container">
-    <h1>MONKI</h1>
+    <h1>lisemonkkey</h1>
     <h2>Your favorite degen, always all-in on memecoins!</h2>
-
-    <div class="monkey" aria-label="Mascot monkey"></div>
-
+    <div class="monkey"></div>
     <p class="description">
-      Forget analysis, forget fundamentals. MONKI only cares about smashing the buy button. The most degen monkey on Solana is loose, jumping from shitcoin to shitcoin — no fear, no brakes, NO WAY BACK. If you breathe memes, live all-in, and think risk is just a pretty word... then you're already MONKI. Hold tight, ape in, hold... and pray.
+     Forget the analysis, forget the fundamentals. LISEMONKKEI only cares about hitting the buy button. Solana’s most degenerate ape is on the loose, jumping from shitcoin to shitcoin — fearlessly.
+But LISEMONKKEY no limited he’s everywhere. spreading memes, trending on every feed, and wreaking havoc on X, TikTok, Instagram, YouTube, Kwai, and beyond. The jungle isn’t just wild… it’s viral.
     </p>
+    <div class="social-buttons">
+      <a class="btn" href="https://www.youtube.com/@lisemonkey-k3v/videos" target="_blank"><img src="https://i.postimg.cc/pXhDm8SH/youtube.png" alt="YouTube">YouTube</a>
+      <a class="btn" href="https://www.tiktok.com/@lisemonki" target="_blank"><img src="https://i.postimg.cc/nchn2GJy/tiktok.png" alt="TikTok">TikTok</a>
+      <a class="btn" href="https://m.kwai.com/user/150001696753606" target="_blank"><img src="https://i.postimg.cc/XJHg0xcz/kwai.png" alt="Kwai">Kwai</a>
+      <a class="btn" href="https://www.instagram.com/lisemonkkey/profilecard/?igsh=bjFtdzBkdnV2dDhq" target="_blank"><img src="https://i.postimg.cc/fRvsf0vb/instagram.png" alt="Instagram">Instagram</a>
+    </div>
 
     <div class="meme">
       <img src="https://i.postimg.cc/VNGY6wd8/Imagem-do-Wh.jpg" alt="Monki Meme" />
@@ -233,29 +225,92 @@
     </div>
 
     <div class="roadmap">
-      <h3>📜 Roadmap</h3>
-      <p>Phase 1 — Make memes ✅</p>
-      <p>Phase 2 — Grow the community 🍌</p>
-      <p>Phase 3 — Go to the MOON 🚀🌕</p>
+      <h3>🧘‍♂️ Official $MONKI Roadmap</h3>
+      <p>No think. Just Buy. But we plan.</p>
+     <div style="background: rgba(0,0,0,0.5); padding: 1rem; border-radius: 10px; box-shadow: 0 0 10px #57f287;">
+    <h4>🥇 Phase 1 – Launch & Foundation</h4>
+    <ul style="list-style-type: none; padding: 0; color: #a0e39c;">
+      <li>✅ $MONKI token successfully launched on Pump-Fun</li>
+      <li>✅ Visual identity created (Monki with pink cap and sunglasses)</li>
+      <li>✅ Active community formed on Telegram and X</li>
+      <li>🔄 Viral memes on various platforms</li>
+    </ul>
+  </div>
+
+  <div style="background: rgba(0,0,0,0.5); padding: 1rem; border-radius: 10px; box-shadow: 0 0 10px #57f287;">
+    <h4>🧱 Phase 2 – Building Credibility</h4>
+    <ul style="list-style-type: none; padding: 0; color: #a0e39c;">
+      <li>🏅 Interactive community events</li>
+      <li>🎁 Giveaway of exclusive Monki NFTs</li>
+      <li>🎮 Start of Monki-themed mini games</li>
+      <li>🤝 Partnerships with Solana & Pump-Fun projects</li>
+      <li>📢 Campaigns with influencers & collabs</li>
+      <li>🌱 NFT Staking to earn $MONKI</li>
+      <li>💰 Token Staking for passive income</li>
+    </ul>
+  </div>
+
+ <div style="background: rgba(0,0,0,0.5); padding: 1rem; border-radius: 10px; box-shadow: 0 0 10px #57f287;">
+    <h4>🛸 Phase 3 – Expansion & Immortalization</h4>
+    <ul style="list-style-type: none; padding: 0; color: #a0e39c;">
+      <li>🔥 Listing on Raydium, Orca & more</li>
+      <li>📊 Jupiter Aggregator integration</li>
+      <li>🔍 Apply for CoinGecko & CMC</li>
+      <li>💼 Apply to CEXs (MEXC, BitMart...)</li>
+      <li>🎬 Launch of animations & memes</li>
+      <li>🛍 Official merch (pink caps etc.)</li>
+      <li>🌍 Make $MONKI a Solana meme icon</li>
+    </ul>
+  </div>
+      <!-- ... MANTER roadmap como no exemplo anterior ... -->
     </div>
 
-    <div class="meme" style="margin-top: 2rem;">
+    <div class="meme">
       <img src="https://i.postimg.cc/br5rvF9m/Imagem-do-Whats-App.jpg" alt="Second Monki Meme" />
       <p>"When the pump is slow, but MONKI never lets go of the banana 🍌💎 — monkey patience is everything in this jungle!"</p>
     </div>
+<main class="container">
+    <h1>wallet address</h1>
+<div style="margin-top: 2rem; display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap;">
+  <div style="padding: 0.10rem 1rem; background: rgba(0,0,0,0.5); border-radius: 12px; box-shadow: 0 0 5px #57f287; font-weight: bold; color: #57f287;">
+    <span id="wallet-display">4J8VE...ypump</span>
+  </div>
+  
+  <button onclick="copiarCarteira()" style="padding: 0.6rem 1rem; background: #57f287; color: #0a250a; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; box-shadow: 0 0 10px #57f287;">
+    <img src="https://i.postimg.cc/HsxrWknJ/cola.png" style="width: 15px; height: auto;" alt="Descrição">
+  </button>
+</div>
 
-    <section class="tokenomics">
+<script>
+  const enderecoCompleto = "4J8VE3jYcLkUSHBKmrDvZvCRurvUUPApYYrUsi8Ypump";
+
+  function copiarCarteira() {
+    navigator.clipboard.writeText(enderecoCompleto)
+      .then(() => alert("Endereço copiado!"))
+      .catch(() => alert("Erro ao copiar o endereço."));
+  }
+</script>
+
+
+    <div class="tokenomics">
       <h3>💰 Tokenomics</h3>
       <p>Total Supply: 1,000,000,000</p>
       <p>97.77% Liquidity</p>
-      <p>2.22% Dev</p>
-    </section>
-
-  </main>
-
-  <footer>
+      <p>1.40% dev</p>
+  
+    </div>
+  </main></div>
+</div>
+<div class="roadmap">
+  <p>shortly</p>
+  <img src="https://i.postimg.cc/vmVTVSgm/imagem-2.png" style="width: 200px; height: auto;" alt="Descrição da imagem">
+</div>
+      <img src="https://i.postimg.cc/C1m4WkjK/imagem.png" alt="Second Monki Meme" />
+      <p>enter this degenerate emotion</p>
+    </div>
+  </main>  
+<footer>
     © 2025 by MONKI. All rights reserved!
   </footer>
-
 </body>
 </html>
