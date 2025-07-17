@@ -1,46 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=0.7, minimum-scale=0.7, maximum-scale=2, user-scalable=yes">
-  <title>lisemonkkey | Your favorite degen on memecoins</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>lisemonkkey | Seu degen favorito</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
 
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
-      padding:13;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
       font-family: 'Comic Neue', cursive, sans-serif;
       background: linear-gradient(135deg, #2b5d34, #1c3a20);
       color: #fff;
-      overflow-x: hidden;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       text-align: center;
-      position: relative;
     }
 
-    .falling {
+     .falling {
       position: absolute;
       background: url('https://i.postimg.cc/LYGL2Qhb/istockphoto.png') no-repeat center/contain;
       opacity: 0.2;
       animation: fall linear infinite;
     }
-
     @keyframes fall {
       0% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
       50% { opacity: 0.3; }
       100% { transform: translateY(120vh) rotate(360deg); opacity: 0.2; }
     }
 
-    .falling:nth-child(n) {
-      width: 60px;
-      height: 60px;
-      animation-duration: 10s;
-    }
-
+    .falling:nth-child(n) { width: 60px; height: 60px; animation-duration: 10s; }
     .falling:nth-child(1) { left: 5%; animation-delay: 0s; }
     .falling:nth-child(2) { left: 15%; animation-delay: 2s; }
     .falling:nth-child(3) { left: 25%; animation-delay: 4s; }
@@ -52,139 +46,154 @@
     .falling:nth-child(9) { left: 85%; animation-delay: 1.5s; }
     .falling:nth-child(10){ left: 95%; animation-delay: 3.5s; }
 
-    .btn {
-      background: #57f287;
-      color: #0a250a;
-      font-weight: 700;
-      text-decoration: none;
-      padding: 0.5rem 1.2rem;
-      border-radius: 9999px;
-      box-shadow: 0 0 10px #57f287;
-      transition: 0.3s ease;
-      font-size: 1rem;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .btn img {
-      height: 20px;
-      margin-right: 6px;
-    }
-
-    .btn:hover {
-      background: #0a250a;
-      color: #57f287;
-      box-shadow: 0 0 15px #a0e39c;
-    }
-
     .top-nav {
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
       background: rgba(0, 0, 0, 0.6);
-      padding: 0.8rem 1.5rem;
+      padding: 0.8rem 1rem;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 1rem;
       box-shadow: 0 2px 10px rgba(0,0,0,0.7);
       z-index: 1000;
     }
 
+    .btn {
+      background: #FFD700;
+      color: #0a250a;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 9999px;
+      box-shadow: 0 0 10px #FFD700;
+      transition: 0.3s ease;
+      font-size: 1rem;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn img {
+      height: 20px;
+    }
+
+    .btn:hover {
+      background: #0a250a;
+      color: #FFD700;
+      box-shadow: 0 0 15px #ffe271;
+    }
+
     .container {
+      width: 100%;
       max-width: 500px;
       background: rgba(0, 0, 0, 0.4);
-      padding: 3rem 2.5rem 2.5rem;
+      padding: 3rem 1.5rem 2.5rem;
       border-radius: 15px;
-      box-shadow: 0 0 20px #57f287;
-      margin-top: 100px;
-      width: 90%;
-    }
-
-    .social-buttons {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .monkey {
-      margin: 1.5rem auto 2rem;
-      width: 180px;
-      height: 180px;
-      background: url('https://i.postimg.cc/Y997FsJw/3837dba4-07df-4680-91.png') no-repeat center/contain;
+      box-shadow: 0 0 20px #FFD700;
+      margin: 120px auto 2rem;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
       font-size: 2.2rem;
       margin-bottom: 0.3rem;
-      text-shadow: 0 0 8px #57f287;
+      text-shadow: 0 0 8px #FFD700;
     }
 
     h2 {
       font-size: 1rem;
       font-weight: 400;
-      margin-bottom: 1.8rem;
-      color: #a0e39c;
+      margin-bottom: 1.5rem;
+      color: #ffe271;
       font-style: italic;
     }
 
+    .monkey {
+      margin: 1.5rem auto;
+      width: 160px;
+      height: 160px;
+      background: url('https://i.postimg.cc/k5s4zzwJ/1000268321-removebg-preview.png') no-repeat center/contain;
+    }
+
     p.description {
-      font-size: 1rem;
+      font-size: 1.05rem;
       line-height: 1.5;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    .social-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
       margin-bottom: 2rem;
     }
 
+    .meme, .roadmap, .tokenomics {
+      margin-top: 2rem;
+    }
+
     .meme img {
-      width: 100%;
+      max-width: 100%;
       border-radius: 12px;
-      box-shadow: 0 0 15px #57f287;
+      box-shadow: 0 0 15px #FFD700;
     }
 
     .meme p {
       margin-top: 0.8rem;
       font-size: 1rem;
-      color: #a0e39c;
+      color: #ffe271;
       font-style: italic;
-    }
-
-    .roadmap, .tokenomics {
-      margin-top: 2rem;
-      background: rgba(0,0,0,0.5);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px #57f287;
-      color: #a0e39c;
     }
 
     .roadmap h3, .tokenomics h3 {
       font-size: 1.5rem;
-      color: #57f287;
+      color: #FFD700;
       margin-bottom: 1rem;
-      text-shadow: 0 0 8px #57f287;
+      text-shadow: 0 0 8px #FFD700;
+    }
+
+    .roadmap-box {
+      background: rgba(0,0,0,0.5);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #FFD700;
+      margin-bottom: 1rem;
+    }
+
+    .roadmap-box ul {
+      list-style: none;
+      padding: 0;
+      color: #ffe271;
+      text-align: left;
+    }
+
+    .tokenomics {
+      background: rgba(0,0,0,0.5);
+      padding: 1.2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #FFD700;
+      color: #ffe271;
     }
 
     footer {
-      margin-top: 2rem;
       padding: 1rem 0;
       width: 100%;
       background: rgba(0,0,0,0.6);
-      color: #57f287;
+      color: #FFD700;
       font-size: 0.9rem;
       text-align: center;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.7);
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 1.8rem; }
-      h2 { font-size: 0.9rem; }
-      .btn { font-size: 0.85rem; padding: 0.4rem 1rem; }
     }
   </style>
 </head>
 <body>
+
   <!-- Bananas -->
   <div class="falling"></div><div class="falling"></div><div class="falling"></div><div class="falling"></div><div class="falling"></div>
   <div class="falling"></div><div class="falling"></div><div class="falling"></div><div class="falling"></div><div class="falling"></div>
@@ -200,7 +209,7 @@
     <a class="btn" href="https://x.com/liseMonkkey" target="_blank">
       <img src="https://i.postimg.cc/jdrBNwmG/x.png" alt="X">
     </a>
-   <a class="btn" href="https://www.reddit.com/u/lisemonkkey12/s/gcgPXwqKa5" target="_blank">
+   <a class="btn" href="https://www.reddit.com/u/lisemonkkeycoinn/s/zHbK75dnpo" target="_blank">
        <img src="https://i.postimg.cc/5tjGkk80/3228547-app-b-w-logo-media-popular-icon.png" alt="X">
        </a>
   </nav>
@@ -223,8 +232,8 @@ But LISEMONKKEY no limited he’s everywhere. spreading memes, trending on every
     </div>
 
     <div class="meme">
-      <img src="https://i.postimg.cc/VNGY6wd8/Imagem-do-Wh.jpg" alt="Monki Meme" />
-      <p>"Hold this shit, 'cause today it's pump day! lisemonkkey never leaves the jungle." 🍌💎</p>
+      <img src="https://i.postimg.cc/X7Mbc36R/Imagem-do-Whats-App-de-2025-07-14-s-20-06-52-6baca555.jpg" alt="Monki Meme" />
+      <p>Hold this shit, 'cause today it's pump day! lisemonkkey never leaves the jungle. 🍌💎</p>
     </div>
 
     <div class="roadmap">
@@ -269,8 +278,8 @@ But LISEMONKKEY no limited he’s everywhere. spreading memes, trending on every
     </div>
 
     <div class="meme">
-      <img src="https://i.postimg.cc/br5rvF9m/Imagem-do-Whats-App.jpg" alt="Second Monki Meme" />
-      <p>"When the pump is slow, but lisemonkkey never lets go of the banana 🍌💎 — monkey patience is everything in this jungle!"</p>
+      <img src="https://i.postimg.cc/YSvnsG1b/Chat-GPT-Image-14-de-jul-de-2025-20-11-52.png" alt="Second Monki Meme" />
+      <p>Have you seen my pile of bananas?</p>
     </div>
 <main class="container">
     <h1>wallet address</h1>
@@ -303,12 +312,12 @@ But LISEMONKKEY no limited he’s everywhere. spreading memes, trending on every
   
     </div>
   </main></div>
-</div>
-<div class="roadmap">
-  <p>meme with bananas</p>
-  <img src="https://i.postimg.cc/Cx8S650X/Imagem-do-Whats-App-de-2025-07-04-s-20-37-26-399b0096.jpg" style="width: 450px; height: auto;" alt="Descrição da imagem">
-</div>
-      <img src="https://i.postimg.cc/C1m4WkjK/imagem.png" alt="Second Monki Meme" />
+    <div class="meme">
+      <img src="https://i.postimg.cc/m2676d8W/Chat-GPT-Image-14-de-jul-de-2025-20-26-04.png" alt="Monki Meme" />
+      <p>memes and bananas 🍌💎</p>
+    </div>
+
+      <img src="https://i.postimg.cc/g2FNLBzv/imagen-compilado.png" alt="Second Monki Meme" />
       <p>enter this degenerate emotion</p>
     </div>
   </main>  
